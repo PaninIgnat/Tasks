@@ -1,8 +1,8 @@
 
-        import java.io.*;
-        import java.math.BigDecimal;
-        import java.math.RoundingMode;
-        import java.util.Scanner;
+import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Scanner;
 
         Задание №9: Ввод/вывод данных для массива
 public class Task_9 {
@@ -262,79 +262,81 @@ public class Task_9 {
 
     Итоговая задача №1:
 
-    public class Task_final_1 {
-        public static void main(String[] args) throws IOException {
-            System.out.println("Введите с консоли число в бинарном формате:");
+public class Task_final_1 {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Введите с консоли число в бинарном формате:");
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            String bin = reader.readLine();
+        String bin = reader.readLine();
 
-            int n = 0;
-            for (int i = 0; i < bin.length(); i++) {
-                n <<= 1;
-                if (bin.charAt(i) == '1') n++;
-            }
-            System.out.println(n);
+        int n = 0;
+        for (int i = 0; i < bin.length(); i++) {
+            n <<= 1;
+            if (bin.charAt(i) == '1') n++;
         }
+        System.out.println(n);
     }
+}
 
 
     финальное 2:
 
-    public class Task_final_2 {
-        public static void main(String[] args) throws IOException {
+public class Task_final_2 {
+    public static void main(String[] args) throws IOException {
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            System.out.println("Введите длинну массива:");
-            Integer[] length = new Integer[Integer.parseInt(reader.readLine())];
+        System.out.println("Введите длинну массива:");
+        Integer[] length = new Integer[Integer.parseInt(reader.readLine())];
 
-            System.out.println("Заполните массив:");
-            for (int i = 0; i < length.length; i++) {
-                length[i] = Integer.parseInt(reader.readLine());
+        System.out.println("Заполните массив:");
+        for (int i = 0; i < length.length; i++) {
+            length[i] = Integer.parseInt(reader.readLine());
+        }
+
+        int min, temp;
+
+        for (int index = 0; index < length.length - 1; index++) {
+            min = index;
+            for (int scan = index + 1; scan < length.length; scan++) {
+                if (length[scan] < length[min])
+                    min = scan;
             }
 
-            int min, temp;
+            temp = length[min];
+            length[min] = length[index];
+            length[index] = temp;
 
-            for (int index = 0; index < length.length - 1; index++) {
-                min = index;
-                for (int scan = index + 1; scan < length.length; scan++) {
-                    if (length[scan] < length[min])
-                        min = scan;
-                }
-
-                temp = length[min];
-                length[min] = length[index];
-                length[index] = temp;
-
-            }
-            for (int i = 0; i < length.length; i++) {
-                int s = length[i];
-                System.out.println(s + " ");
-            }
+        }
+        for (int i = 0; i < length.length; i++) {
+            int s = length[i];
+            System.out.println(s + " ");
         }
     }
+}
 
 
     Итоговая задача №3:
 
-    public class Task_final_3{
-        public static void main(String[] args) throws IOException {
-            System.out.println("Введите длинну массива:");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+public class Task_final_3{
+    public static void main(String[] args) throws IOException {
+        System.out.println("Введите курс валюты: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-            String D = reader.readLine();
-            double x = Double.parseDouble(D);
+        String D = reader.readLine();
+        double x = Double.parseDouble(D);
 
-            System.out.println("Заполните массив:");
+        System.out.println("Введите количество рублей");
 
-            String R = reader.readLine();
-            double y = Double.parseDouble(R);
+        String R = reader.readLine();
+        double y = Double.parseDouble(R);
 
-            double sum = y / x;
-            float f = (float) sum;
-            System.out.format("%.2f", f);
+        double sum = y / x;
+        float f = (float) sum;
+        System.out.format("Итого: " + "%.2f", f );
+        System.out.println(" долларов");
 
-        }
     }
+}
+
