@@ -1,9 +1,10 @@
-import java.io.*;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Scanner;
 
-Задание №9: Ввод/вывод данных для массива
+        import java.io.*;
+        import java.math.BigDecimal;
+        import java.math.RoundingMode;
+        import java.util.Scanner;
+
+        Задание №9: Ввод/вывод данных для массива
 public class Task_9 {
 
 
@@ -199,6 +200,8 @@ public class Task_9 {
 
                     if (str.compareTo("СТОП") == 0) break;
                     fw.write(str);
+                    str = str + "\r\n";
+
 
                 } while (str.compareTo("СТОП") != 0);
             } catch (IOException e) {
@@ -206,6 +209,55 @@ public class Task_9 {
             }
         }
     }
+
+
+    Задача №18: Запись данных в файл
+
+    public static void main(String[] args) throws IOException {
+
+
+        String s;
+        int lineNumber = 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader("C:/Users/Игнат/Desktop/rer.txt"))) {
+
+            File myFile = new File("C:/Users/Игнат/Desktop/rer.txt");
+            FileReader fileReader = new FileReader(myFile);
+            LineNumberReader lineNumberReader = new LineNumberReader(fileReader);
+
+
+            while (lineNumberReader.readLine() != null) {
+                lineNumber++;
+            }
+
+            System.out.println(lineNumber);
+            lineNumberReader.close();
+
+        } catch (IOException exc) {
+            System.out.println("exception" + ":" + exc);
+        }
+
+        BufferedReader b = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("введи СТОП чтоб закончить ввод строк: ");
+
+
+
+        String str;
+
+        try (FileWriter fw = new FileWriter("C:/Users/Игнат/Desktop/rer.txt")) {
+            for (int i = 0; i < lineNumber ; i++) {
+
+                str = b.readLine();
+                if (str.compareTo("СТОП") == 0) break;
+                str = str + "\r\n";
+                fw.write(str);
+            }
+
+        }catch (IOException e){
+            System.out.println("EXCEPTION:  " + e);
+        }
+    }
+}
 
 
     Итоговая задача №1:
